@@ -7,22 +7,27 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "local": "cross-env LOCAL=true ts-node src/index.ts"
+    "local": "cross-env LOCAL=true ts-node src/index.ts",
+    "graphql": "npx ts-node src/mock-appsync.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "apollo-server": "^3.13.0",
     "aws-cdk-lib": "^2.177.0",
     "aws-sdk": "^2.1692.0",
     "axios": "^1.7.9",
     "constructs": "^10.4.2",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "graphql": "^16.10.0"
   },
   "devDependencies": {
     "@types/aws-sdk": "^0.0.42",
     "@types/axios": "^0.9.36",
+    "@types/dotenv": "^6.1.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.0",
     "aws-sdk-mock": "^6.2.1",

@@ -4,6 +4,7 @@ import { fileOperations } from './tasks/task3';
 import * as cdk from 'aws-cdk-lib';
 import { Task5Stack } from './tasks/task5-stack';
 import { Task6Stack } from './tasks/task6-stack';
+import { handler as task7LambdaHandler } from './tasks/task7-lambda';
 
 async function runTasks() {
     console.log('Executing Task 1...');
@@ -18,6 +19,9 @@ async function runTasks() {
     fileOperations.sync(testFile, testContent);
     await fileOperations.async(testFile, testContent);
     fileOperations.stream(testFile, testContent);
+
+    console.log('\nExecuting Task 7 (Lambda calling GraphQL)...');
+    await task7LambdaHandler({});
 }
 
 function deployAWSInfra() {
@@ -30,5 +34,5 @@ function deployAWSInfra() {
 
 (async () => {
     await runTasks();
-    deployAWSInfra();
+    //deployAWSInfra();
 })();

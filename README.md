@@ -32,6 +32,10 @@ This project consists of multiple tasks implemented in **Node.js** and **TypeScr
 - Demonstrates Lambda interaction with **DynamoDB and GraphQL API** (mocked).
 - Allows fetching data via a simulated GraphQL query.
 
+### **Task 7: Lambda Calling GraphQL API**
+- Calls the locally hosted GraphQL API.
+- Fetches data using a GraphQL query.
+
 ---
 
 ## **Installation**
@@ -52,12 +56,19 @@ Ensure **Node.js** and **npm** are installed on your system.
 
 ## **Running the Tasks**
 
-### **Run All Tasks Locally (Without AWS)**
+### **Start GraphQL Server (Required for Task 6 & Task 7)**
+```sh
+npm run graphql
+```
+
+This will start a **local GraphQL server** on `http://localhost:4000/graphql`.
+
+### **Run All Tasks Locally (After Starting GraphQL Server)**
 ```sh
 npm run local
 ```
 
-This will execute **Task 1, Task 2, Task 3** and mock **Task 5 and Task 6**.
+This will execute **Task 1, Task 2, Task 3**, and mock **Task 5, Task 6, and Task 7**.
 
 ### **Run Individual Tasks**
 You can also run each task separately:
@@ -81,6 +92,25 @@ npm run dev src/tasks/task3.ts
 ```sh
 npm run dev src/tasks/task5-stack.ts
 npm run dev src/tasks/task6-stack.ts
+```
+
+#### **Task 7 (Lambda Calling GraphQL API)**
+```sh
+npm run dev src/lambda/task7-lambda.ts
+```
+
+---
+
+## **Building & Running in Production**
+
+### **Build the TypeScript Project**
+```sh
+npm run build
+```
+
+### **Start the Compiled JavaScript Project**
+```sh
+npm run start
 ```
 
 ---
@@ -114,13 +144,14 @@ jest tests/task4.test.ts
 │   │   ├── task4.test.ts  # Jest Tests
 │   │   ├── task5-stack.ts  # AWS Infra (Mocked Locally)
 │   │   ├── task6-stack.ts  # AWS Lambda Example
+│   │   ├── task7-lambda.ts  # Lambda Calling GraphQL API
 │   ├── /infra  # AWS Infrastructure Helpers
 │   │   ├── aws-s3.ts
 │   │   ├── aws-dynamodb.ts
 │   │   ├── aws-lambda.ts
 │   │   ├── aws-appsync.ts
 │   ├── /lambda  # Lambda Function Code
-│   │   ├── index.ts
+│   │   ├── task7-lambda.ts
 │   ├── /utils
 │   │   ├── helpers.ts  # Utility Functions
 │── /tests  # Jest Tests
@@ -133,12 +164,3 @@ jest tests/task4.test.ts
 ```
 
 ---
-
-## **Summary**
-✅ **Fully Local Execution (No AWS Credentials Required)**  
-✅ **Tasks Run Independently or All Together**  
-✅ **Jest Tests Ensure Code Reliability**  
-
----
-
-🎯 **Now you can run, test, and develop all tasks efficiently! 🚀**
