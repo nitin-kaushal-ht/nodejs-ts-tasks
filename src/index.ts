@@ -6,6 +6,7 @@ import { Task5Stack } from './tasks/task5-stack';
 import { Task6Stack } from './tasks/task6-stack';
 import { handler as task7LambdaHandler } from './tasks/task7-lambda';
 import { executeTask8 } from "./tasks/task8";
+import { executeTask9 } from "./tasks/task9";
 
 
 async function runTasks() {
@@ -27,6 +28,9 @@ async function runTasks() {
 
     console.log('\nExecuting Task 8...');
     await executeTask8();
+
+    console.log('\nExecuting Task 9...');
+    await executeTask9();
 }
 
 function deployAWSInfra() {
