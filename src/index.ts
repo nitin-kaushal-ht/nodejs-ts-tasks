@@ -5,6 +5,8 @@ import * as cdk from 'aws-cdk-lib';
 import { Task5Stack } from './tasks/task5-stack';
 import { Task6Stack } from './tasks/task6-stack';
 import { handler as task7LambdaHandler } from './tasks/task7-lambda';
+import { executeTask8 } from "./tasks/task8";
+
 
 async function runTasks() {
     console.log('Executing Task 1...');
@@ -22,6 +24,9 @@ async function runTasks() {
 
     console.log('\nExecuting Task 7 (Lambda calling GraphQL)...');
     await task7LambdaHandler({});
+
+    console.log('\nExecuting Task 8...');
+    await executeTask8();
 }
 
 function deployAWSInfra() {

@@ -5,3 +5,4 @@ dist/
 cdk.out/
 task1-output.json
 task2-output.json
+testFile.txt
