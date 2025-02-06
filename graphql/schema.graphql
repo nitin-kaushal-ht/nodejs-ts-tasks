@@ -1,0 +1,9 @@
+type Query {
+  fetchData: [DataItem]
+}
+
+type DataItem {
+  id: String
+  title: String
+  completed: Boolean
+}
